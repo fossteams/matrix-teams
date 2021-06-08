@@ -1,0 +1,23 @@
+services:
+  synapse:
+    image: matrixdotorg/synapse:v1.36.0rc1
+    ports:
+      - 8008:8008
+    volumes:
+      - ./data:/data
+    networks:
+      - local-net
+  redis:
+    image: redis:6.2-alpine
+    networks:
+      - local-net
+
+networks:
+  local-net:
+    driver: bridge
+    ipam:
+      driver: default
+      config:
+        - subnet: 172.23.0.0/24
+          gateway: 172.23.0.1
+  

@@ -1,0 +1,5 @@
+/data/db/*
+/data/keys/*
+/data/logs/*
+/data/media_store/*
+!.gitkeep
